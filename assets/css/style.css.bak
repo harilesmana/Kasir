@@ -1,0 +1,249 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #343a40;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 56px;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-menu {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-menu li {
+    position: relative;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #adb5bd;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+}
+
+.sidebar-menu .submenu {
+    padding-left: 30px;
+    list-style: none;
+    display: none;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu .submenu li a {
+    padding: 10px 20px;
+}
+
+.sidebar-menu .menu-arrow {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    transition: transform 0.3s;
+}
+
+.sidebar-menu .menu-arrow.rotate {
+    transform: rotate(90deg);
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+/* Toggle Sidebar */
+.sidebar-collapsed .sidebar {
+    width: 70px;
+}
+
+.sidebar-collapsed .sidebar .sidebar-header span,
+.sidebar-collapsed .sidebar .menu-title,
+.sidebar-collapsed .sidebar .menu-arrow {
+    display: none;
+}
+
+.sidebar-collapsed .sidebar .sidebar-menu li a {
+    text-align: center;
+    padding: 12px 5px;
+}
+
+.sidebar-collapsed .sidebar .sidebar-menu li a i {
+    margin-right: 0;
+    font-size: 1.2rem;
+}
+
+.sidebar-collapsed .main-content {
+    margin-left: 70px;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+/* Table */
+.table-responsive {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Toast Notification */
+.toast {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+    
+    .sidebar-collapsed .sidebar {
+        margin-left: 0;
+        width: 70px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar-collapsed .main-content {
+        margin-left: 70px;
+    }
+}
+/* Print styles for receipt */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .card, .card * {
+        visibility: visible;
+    }
+    .card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+    .no-print, .no-print * {
+        display: none !important;
+    }
+    .table {
+        width: 100%;
+    }
+    .table th, .table td {
+        padding: 5px;
+    }
+}
+
+/* Additional styles for transaction */
+.receipt-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.receipt-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.receipt-header p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.receipt-details {
+    margin-bottom: 15px;
+}
+.receipt-details p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+.receipt-items {
+    width: 100%;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+}
+.receipt-items th {
+    text-align: left;
+    border-bottom: 1px dashed #000;
+    padding: 5px 0;
+}
+.receipt-items td {
+    padding: 5px 0;
+}
+.receipt-totals {
+    width: 100%;
+    margin-top: 10px;
+}
+.receipt-totals td {
+    padding: 3px 0;
+}
+.receipt-totals .total-label {
+    text-align: right;
+    padding-right: 10px;
+}
+.receipt-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .receipt-header h2 {
+        font-size: 20px;
+    }
+}
